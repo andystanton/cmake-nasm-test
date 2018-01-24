@@ -8,11 +8,11 @@
     %define     syscall_exit            60
 %endif
 
-global          entrypoint
-
 section         .text
+    global      entrypoint
 
 entrypoint:
+    ; syscall parameter info: http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/
     mov         rax, syscall_write      ; write
     mov         rdi, 1                  ; stdout
     mov         rsi, msg
@@ -25,5 +25,5 @@ entrypoint:
 
 section         .data
 
-msg:  db        'Hello world', 0x0A     ; 'Hello world' followed by newline
-.len: equ       $ - msg
+msg     db      'Hello world', 0x0A     ; 'Hello world' followed by newline
+.len    equ     $ - msg
