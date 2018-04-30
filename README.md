@@ -9,7 +9,7 @@ This project builds a hello world console application in x86-64 assembly with NA
 
 ## Usage
 
-This command will build the application on Linux and MacOS with recent NASM (tested with 2.12):
+This command will build the application on Linux and MacOS with recent NASM (tested with 2.13):
 
 ```sh
 $ make run

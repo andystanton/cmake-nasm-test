@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7)
 set(project_name "nasm-test")
-project(${project_name} ASM)
+project(${project_name} ASM_NASM)
 
 set(CMAKE_NASM_LINK_EXECUTABLE "ld -o <TARGET> <OBJECTS>")
 set(CAN_USE_ASSEMBLER TRUE)
