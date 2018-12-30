@@ -1,5 +1,5 @@
 %ifdef      MACOS
-%define     entrypoint      start
+%define     entrypoint      _main
 %define     syscall_write   0x2000004
 %define     syscall_exit    0x2000001
 %else

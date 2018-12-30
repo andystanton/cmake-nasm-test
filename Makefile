@@ -19,4 +19,4 @@ run: | all runonly
 
 docker:
 	@docker build -t $(image_name) --compress .;
-	@docker run --rm $(image_name) make -s clean all run;
+	@docker run --rm $(image_name);
