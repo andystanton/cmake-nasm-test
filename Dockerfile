@@ -1,10 +1,10 @@
 # build container
-FROM    debian
+FROM    debian:stable-slim
 
 RUN     apt-get -q update && apt-get -qy upgrade && apt-get -qy install clang make curl python
 
-ARG     cmake_version=3.13
-ARG     cmake_revision=4
+ARG     cmake_version=3.16
+ARG     cmake_revision=0
 WORKDIR /root
 RUN     curl -OJ https://cmake.org/files/v${cmake_version}/cmake-${cmake_version}.${cmake_revision}-Linux-x86_64.tar.gz
 RUN     tar -xzf cmake-${cmake_version}.${cmake_revision}-Linux-x86_64.tar.gz

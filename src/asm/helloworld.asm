@@ -1,22 +1,22 @@
 %ifdef      MACOS
-%define     entrypoint      _main
-%define     syscall_write   0x2000004
-%define     syscall_exit    0x2000001
+%define     ENTRYPOINT      _main
+%define     SYSCALL_WRITE   0x2000004
+%define     SYSCALL_EXIT    0x2000001
 %else
-%define     entrypoint      _start
-%define     syscall_write   1
-%define     syscall_exit    60
+%define     ENTRYPOINT      start
+%define     SYSCALL_WRITE   1
+%define     SYSCALL_EXIT    60
 %endif
 
             section         .text
-            global          entrypoint
+            global          ENTRYPOINT
 
-entrypoint: mov             rax, syscall_write  ; write
+ENTRYPOINT: mov             rax, SYSCALL_WRITE  ; write
             mov             rdi, 1              ; stdout
             mov             rsi, msg
             mov             rdx, msg.len
             syscall
-            mov             rax, syscall_exit   ; exit
+            mov             rax, SYSCALL_EXIT   ; exit
             mov             rdi, 0              ; return 0
             syscall
 
