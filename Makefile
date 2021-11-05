@@ -1,4 +1,4 @@
-.PHONY : all clean build runonly run docker
+.PHONY : all clean build runonly run docker dockerbuild dockerclean
 
 project_name = nasm-test
 image_name = debasm
@@ -17,6 +17,11 @@ runonly:
 
 run: | all runonly
 
-docker:
+dockerbuild:
 	@docker build -t $(image_name) --compress .;
+
+docker: dockerbuild
 	@docker run --rm $(image_name);
+
+dockerclean:
+	@docker rmi $(image_name);
