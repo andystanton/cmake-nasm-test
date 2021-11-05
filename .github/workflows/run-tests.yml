@@ -1,0 +1,34 @@
+
+name: Run tests
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+    - CMakeLists.txt
+    - Makefile
+    - Dockerfile
+    - src/**
+    - test/**
+    - .github/workflows/**
+  pull_request:
+    branches: [ main ]
+    paths:
+    - CMakeLists.txt
+    - Makefile
+    - Dockerfile
+    - src/**
+    - test/**
+    - .github/workflows/**
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run test script
+        run: test/run-tests.sh
