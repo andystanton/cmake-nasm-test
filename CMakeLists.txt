@@ -6,7 +6,7 @@ set(CAN_USE_ASSEMBLER TRUE)
 if (APPLE)
     set(CMAKE_ASM_NASM_OBJECT_FORMAT macho64)
     set(CMAKE_ASM_NASM_FLAGS "-DMACOS")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -macosx_version_min 10.13 -no_pie")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -macosx_version_min 10.13 -no_pie -L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib")
 endif (APPLE)
 
 if (UNIX AND NOT APPLE)
