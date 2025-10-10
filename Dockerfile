@@ -1,10 +1,10 @@
 # build container
 FROM    debian:stable
 RUN     apt-get -q update && apt-get -qy upgrade && apt-get -qy install cmake curl
-ARG     nasm_version=2.16.03
+ARG     nasm_version=3.00
 WORKDIR /root
-RUN     curl -OJ https://www.nasm.us/pub/nasm/releasebuilds/${nasm_version}/nasm-${nasm_version}.tar.gz
-RUN     tar -xzvf nasm-${nasm_version}.tar.gz
+RUN     curl -OJ https://www.nasm.us/pub/nasm/releasebuilds/${nasm_version}/nasm-${nasm_version}.tar.xz
+RUN     tar -xJf nasm-${nasm_version}.tar.xz
 WORKDIR /root/nasm-${nasm_version}
 RUN     ./configure && make && make install
 
