@@ -1,6 +1,6 @@
 # build container
 FROM    debian:stable
-RUN     apt-get -q update && apt-get -qy upgrade && apt-get -qy install cmake curl
+RUN     apt-get -q update && apt-get -qy upgrade && apt-get -qy install cmake curl xz-utils
 ARG     nasm_version=3.00
 WORKDIR /root
 RUN     curl -OJ https://www.nasm.us/pub/nasm/releasebuilds/${nasm_version}/nasm-${nasm_version}.tar.xz
